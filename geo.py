@@ -74,7 +74,7 @@ def run_curl(step, jar, tmp):
         for name, content in step["files"].items():
             path = os.path.join(tmp, name)
             with open(path, "wb") as f:
-                f.write(content.encode("utf-8"))  # UTF-8 без BOM
+                f.write(content.encode("utf-8"))
             cmd += ["-F", f"{name}=@{path}"]
         if not step["form"] and not step["files"]:
             cmd += ["-d", ""]
