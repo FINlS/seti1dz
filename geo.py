@@ -50,9 +50,6 @@ def parse(html):
             step.setdefault("other", []).append((label.strip(), data))
     return step
 
-BASE = os.environ.get("HW1_BASE", BASE)
-
-
 def run_curl(step, jar, tmp):
     method, url = step["method"], BASE + step["path"]
     cmd = ["curl", "-sS", "-L", "-w", "\n%{http_code}", "-b", jar, "-c", jar]
