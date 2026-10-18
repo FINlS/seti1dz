@@ -79,8 +79,6 @@ def run_curl(step, jar, tmp):
 
     cmd.append(url)
     res = subprocess.run(cmd, capture_output=True)
-    if res.returncode != 0:
-        sys.exit(res.stderr.decode("utf-8", "replace"))
     out = res.stdout.decode("utf-8", "replace")
     body, _, code = out.rpartition("\n")
     return code, body
