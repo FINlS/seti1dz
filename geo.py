@@ -76,8 +76,6 @@ def run_curl(step, jar, tmp):
             with open(path, "wb") as f:
                 f.write(content.encode("utf-8"))
             cmd += ["-F", f"{name}=@{path}"]
-        if not step["form"] and not step["files"]:
-            cmd += ["-d", ""]
 
     cmd.append(url)
     res = subprocess.run(cmd, capture_output=True)
